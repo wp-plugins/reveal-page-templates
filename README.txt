@@ -21,7 +21,7 @@ Compatible with Wordpress Mu. Requires WP/WPMU version 2.8+.
 
 **Further information**
 -----------------------
-Comprehensive information on installing, configuring and using the plugin can be found [here](http://www.studiograsshopper.ch/reveal-page-templates/), and answers to frequently asked questions can be found at the [FAQ](http://www.studiograsshopper.ch/dynamic-content-gallery/faq/). 
+Comprehensive information on installing, configuring and using the plugin can be found [here](http://www.studiograsshopper.ch/reveal-page-templates/), and answers to frequently asked questions can be found at the [FAQ](http://www.studiograsshopper.ch/reveal-page-templates/faq/). 
 
 All support is handled at the [Studiograsshopper Forum](http://www.studiograsshopper.ch/forum/). I do not have time to monitor the wordpress.org forums, therefore please post any questions on my site's forum.
 
