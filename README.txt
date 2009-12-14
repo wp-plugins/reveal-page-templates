@@ -35,7 +35,6 @@ All support is handled at the [Studiograsshopper Forum](http://www.studiograssho
 1. Download the latest version of the plugin to your computer.
 2. Extract and upload the folder *reveal-page-templates* to your */wp-content/plugins/* directory. Please ensure that you do not rename any folder or filenames in the process.
 3. Activate the plugin in your Dashboard via the “Plugins” menu item.
-4. Go to the plugin's Settings page, and configure your settings.
 
 Note for Wordpress Mu users:
 
