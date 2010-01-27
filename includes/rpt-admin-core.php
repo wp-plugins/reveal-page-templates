@@ -4,7 +4,7 @@
 *	Copyright 2009  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	reveal_page_templates
-*	@version	1.0
+*	@version	1.1
 *
 *	Core Admin Functions called by various add_filters and add_actions:
 *		- Plugin action links
