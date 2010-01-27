@@ -26,6 +26,8 @@ Description: Adds a column to the Edit Pages Dashboard screen to display the Pag
 
 /* Version History
 
+1.1			- Bug fix:	SGR_RPT_FILE_NAME constant now properly defined.
+			
 1.0			- Public Release
 	
 */
