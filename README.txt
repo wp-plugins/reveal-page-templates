@@ -1,12 +1,12 @@
 === Reveal Page Templates ===
 
-Version: 1.0
+Version: 1.1
 Author: Ade Walker
 Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/reveal-page-templates/
 Tags: page templates,edit,edit pages,admin,dashboard
 Requires at least: 2.8
-Tested up to: 2.8.6 (WP) and 2.8.6 (WPMU)
+Tested up to: 2.9.1 (WP) and 2.9.1.1 (WPMU)
 Stable tag: 1.0
 
 Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page. Compatible with Wordpress Mu. Requires WP/WPMU version 2.8+.
@@ -21,7 +21,7 @@ Compatible with Wordpress Mu. Requires WP/WPMU version 2.8+.
 
 **Further information**
 -----------------------
-Comprehensive information on installing, configuring and using the plugin can be found [here](http://www.studiograsshopper.ch/reveal-page-templates/), and answers to frequently asked questions can be found at the [FAQ](http://www.studiograsshopper.ch/dynamic-content-gallery/faq/). 
+Comprehensive information on installing, configuring and using the plugin can be found [here](http://www.studiograsshopper.ch/reveal-page-templates/), and answers to frequently asked questions can be found at the [FAQ](http://www.studiograsshopper.ch/reveal-page-templates/faq/). 
 
 All support is handled at the [Studiograsshopper Forum](http://www.studiograsshopper.ch/forum/). I do not have time to monitor the wordpress.org forums, therefore please post any questions on my site's forum.
 
@@ -35,7 +35,6 @@ All support is handled at the [Studiograsshopper Forum](http://www.studiograssho
 1. Download the latest version of the plugin to your computer.
 2. Extract and upload the folder *reveal-page-templates* to your */wp-content/plugins/* directory. Please ensure that you do not rename any folder or filenames in the process.
 3. Activate the plugin in your Dashboard via the “Plugins” menu item.
-4. Go to the plugin's Settings page, and configure your settings.
 
 Note for Wordpress Mu users:
 
@@ -84,5 +83,9 @@ If you find any bugs, or have suggestions for future features, please leave a me
 
 == Changelog ==
 
+= 1.1 =
+* Released 27 January 2010
+* Bug fix: SGR_RPT_FILE_NAME constant now properly defined.
+ 
 = 1.0 =
 * Public release 14 December 2009
