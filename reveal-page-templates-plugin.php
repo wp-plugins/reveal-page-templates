@@ -2,7 +2,7 @@
 /*
 Plugin Name: Reveal Page Templates
 Plugin URI: http://www.studiograsshopper.ch/reveal-page-templates/
-Version: 1.0
+Version: 1.1
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Adds a column to the Edit Pages Dashboard screen to display the Page Template assigned to each Page. Requires WP 2.8+.
@@ -53,9 +53,10 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) )
 /* Set constants for plugin */
 define( 'SGR_RPT_URL', WP_PLUGIN_URL.'/reveal-page-templates' );
 define( 'SGR_RPT_DIR', WP_PLUGIN_DIR.'/reveal-page-templates' );
-define( 'SGR_RPT_VER', '1.0' );
+define( 'SGR_RPT_VER', '1.1' );
 define( 'SGR_RPT_DOMAIN', 'sgr_reveal_page_templates' );
 define( 'SGR_RPT_WP_VERSION_REQ', '2.8' );
+define( 'SGR_RPT_FILE_NAME', 'reveal-page-templates/reveal-page-templates-plugin.php' );
 
 
 /***** Set up variables needed throughout the plugin *****/
