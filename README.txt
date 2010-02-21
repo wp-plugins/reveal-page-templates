@@ -6,7 +6,7 @@ Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/reveal-page-templates/
 Tags: page templates,edit,edit pages,admin,dashboard
 Requires at least: 2.8
-Tested up to: 2.9.1 (WP) and 2.9.1.1 (WPMU)
+Tested up to: 2.9.2 (WP) and 2.9.1.1 (WPMU)
 Stable tag: 1.1
 
 Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page. Compatible with Wordpress Mu. Requires WP/WPMU version 2.8+.
