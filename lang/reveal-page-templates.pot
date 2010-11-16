@@ -1,0 +1,61 @@
+# Translation of the WordPress plugin   by .
+# Copyright (C) 2010 
+# This file is distributed under the same license as the  package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/reveal-page-templates\n"
+"POT-Creation-Date: 2010-11-16 18:31+0000\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/rpt-admin-core.php:22
+msgid "Sorry, you are not allowed to access this file directly."
+msgstr ""
+
+#: includes/rpt-admin-core.php:46
+msgid "FAQ"
+msgstr ""
+
+#: includes/rpt-admin-core.php:47
+msgid "Documentation"
+msgstr ""
+
+#: includes/rpt-admin-core.php:48
+msgid "Donate"
+msgstr ""
+
+#: includes/rpt-admin-core.php:87 includes/rpt-admin-core.php:114
+msgid "Warning! This version of Reveal Page Templates requires Wordpress"
+msgstr ""
+
+#: includes/rpt-admin-core.php:87 includes/rpt-admin-core.php:114
+msgid "Please upgrade Wordpress to run this plugin."
+msgstr ""
+
+#: includes/rpt-admin-core.php:95 includes/rpt-admin-core.php:119
+msgid "Warning! This version of Reveal Page Templates requires WPMU"
+msgstr ""
+
+#: includes/rpt-admin-core.php:95 includes/rpt-admin-core.php:119
+msgid "Please contact your Site Administrator."
+msgstr ""
+
+#: includes/rpt-admin-core.php:139
+msgid "Page Template"
+msgstr ""
+
+#: includes/rpt-admin-core.php:170
+msgid "default"
+msgstr ""
+
+#: reveal-page-templates-plugin.php:41
+msgid "Sorry, you are not allowed to access this page directly."
+msgstr ""
