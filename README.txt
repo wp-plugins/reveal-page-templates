@@ -9,7 +9,7 @@ Requires at least: 2.8
 Tested up to: 3.0.1
 Stable tag: 1.2
 
-Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page. Compatible with Wordpress Multisite. Requires WP/WPMU version 2.8+.
+Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page. Compatible with Wordpress Multisite. Requires WordPress 2.8+.
 
 
 == Description==
