@@ -2,13 +2,13 @@
 /*
 Plugin Name: Reveal Page Templates
 Plugin URI: http://www.studiograsshopper.ch/reveal-page-templates/
-Version: 1.1
+Version: 1.2
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Adds a column to the Edit Pages Dashboard screen to display the Page Template assigned to each Page. Requires WP 2.8+.
 */
 
-/*  Copyright 2009  Ade WALKER  (email : info@studiograsshopper.ch)
+/*  Copyright 2009-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License 2 as published by
@@ -26,6 +26,8 @@ Description: Adds a column to the Edit Pages Dashboard screen to display the Pag
 
 /* Version History
 
+1.2			- Bug fix:	Added is_admin() check for loading actions/hooks
+			
 1.1			- Bug fix:	SGR_RPT_FILE_NAME constant now properly defined.
 			
 1.0			- Public Release
@@ -55,7 +57,7 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) )
 /* Set constants for plugin */
 define( 'SGR_RPT_URL', WP_PLUGIN_URL.'/reveal-page-templates' );
 define( 'SGR_RPT_DIR', WP_PLUGIN_DIR.'/reveal-page-templates' );
-define( 'SGR_RPT_VER', '1.1' );
+define( 'SGR_RPT_VER', '1.2' );
 define( 'SGR_RPT_DOMAIN', 'sgr_reveal_page_templates' );
 define( 'SGR_RPT_WP_VERSION_REQ', '2.8' );
 define( 'SGR_RPT_FILE_NAME', 'reveal-page-templates/reveal-page-templates-plugin.php' );
@@ -76,7 +78,7 @@ $sgr_rpt_text_loaded = false;
 *	None
 *
 *	Required for Admin
-*	rpt-admin-core.php					Main plugin functions
+*	rpt-admin-core.php - Main plugin functions
 *
 *	@since	1.0
 */ 
@@ -92,25 +94,28 @@ if( is_admin() ) {
 
 /***** Add filters and actions ********************/
 
-/* Admin - Adds WP version warning on main Plugins screen */
-// Function defined in rpt-admin-core.php
-add_action('after_plugin_row_reveal-page-templates/reveal-page-templates-plugin.php', 'sgr_rpt_wp_version_check');
+if( is_admin() ) {
 
-/* Admin - Adds additional links in main Plugins page */
-// Function defined in rpt-admin-core.php
-add_filter( 'plugin_row_meta', 'sgr_rpt_plugin_meta', 10, 2 );
+	/* Admin - Adds WP version warning on main Plugins screen */
+	// Function defined in rpt-admin-core.php
+	add_action('after_plugin_row_reveal-page-templates/reveal-page-templates-plugin.php', 'sgr_rpt_wp_version_check');
 
-/* Plugin - Adds column to Edit Pages screen */
-// Function defined in rpt-admin-core.php
-add_filter('manage_pages_columns', 'sgr_rpt_posts_columns');
+	/* Admin - Adds additional links in main Plugins page */
+	// Function defined in rpt-admin-core.php
+	add_filter( 'plugin_row_meta', 'sgr_rpt_plugin_meta', 10, 2 );
 
-/* Plugin - Populates new column in Edit Pages screen */
-// Function defined in rpt-admin-core.php
-add_action('manage_pages_custom_column', 'sgr_rpt_custom_posts_column', 10, 2);
+	/* Plugin - Adds column to Edit Pages screen */
+	// Function defined in rpt-admin-core.php
+	add_filter('manage_pages_columns', 'sgr_rpt_posts_columns');
 
-/* Plugin & Admin - Loads language support */
-// Function defined in rpt-admin-core.php
-add_action('init', 'sgr_rpt_load_textdomain');
+	/* Plugin - Populates new column in Edit Pages screen */
+	// Function defined in rpt-admin-core.php
+	add_action('manage_pages_custom_column', 'sgr_rpt_custom_posts_column', 10, 2);
+
+	/* Plugin & Admin - Loads language support */
+	// Function defined in rpt-admin-core.php
+	add_action('init', 'sgr_rpt_load_textdomain');
+}
 
 
 
