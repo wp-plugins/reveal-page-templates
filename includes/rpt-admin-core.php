@@ -1,10 +1,10 @@
 <?php
 /**	This file is part of the REVEAL PAGE TEMPLATES Plugin
 *	*****************************************************
-*	Copyright 2009  Ade WALKER  (email : info@studiograsshopper.ch)
+*	Copyright 2009-2010  Ade WALKER  (email : info@studiograsshopper.ch)
 *
 * 	@package	reveal_page_templates
-*	@version	1.1
+*	@version	1.2
 *
 *	Core Admin Functions called by various add_filters and add_actions:
 *		- Plugin action links
@@ -60,7 +60,7 @@ function sgr_rpt_plugin_meta($links, $file) {
 
 /**	Function to do WP Version check
 *
-*	RPT v1.0 requires WP 2.8+ to run. This function prints a warning
+*	RPT v1.0 - 1.2 requires WP 2.8+ to run. This function prints a warning
 *	message in the main Plugins screen if version is less than 2.8.
 *
 *	Called by add_filter('after_action_row_$plugin', )
