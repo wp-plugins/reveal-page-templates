@@ -2,13 +2,13 @@
 /*
 Plugin Name: Reveal Page Templates
 Plugin URI: http://www.studiograsshopper.ch/reveal-page-templates/
-Version: 1.2
+Version: 1.3
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Adds a column to the Edit Pages Dashboard screen to display the Page Template assigned to each Page. Requires WP 2.8+.
 */
 
-/*  Copyright 2009-2010  Ade WALKER  (email : info@studiograsshopper.ch)
+/*  Copyright 2009-2011  Ade WALKER  (email : info@studiograsshopper.ch)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License 2 as published by
@@ -25,6 +25,9 @@ Description: Adds a column to the Edit Pages Dashboard screen to display the Pag
 */
 
 /* Version History
+
+1.3			- Feature:	Reveal Template column is now sortable
+			- Enhance:	Cleaned up some code in older functions
 
 1.2			- Bug fix:	Added is_admin() check for loading actions/hooks
 			
@@ -57,9 +60,9 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) )
 /* Set constants for plugin */
 define( 'SGR_RPT_URL', WP_PLUGIN_URL.'/reveal-page-templates' );
 define( 'SGR_RPT_DIR', WP_PLUGIN_DIR.'/reveal-page-templates' );
-define( 'SGR_RPT_VER', '1.2' );
+define( 'SGR_RPT_VER', '1.3' );
 define( 'SGR_RPT_DOMAIN', 'sgr_reveal_page_templates' );
-define( 'SGR_RPT_WP_VERSION_REQ', '2.8' );
+define( 'SGR_RPT_WP_VERSION_REQ', '3.1' );
 define( 'SGR_RPT_FILE_NAME', 'reveal-page-templates/reveal-page-templates-plugin.php' );
 
 
@@ -72,20 +75,17 @@ $sgr_rpt_text_loaded = false;
 
 /***** Load files needed for plugin to run ********************/
 
-/* 	Load files needed for plugin to run
-*
-*	Required for Public
-*	None
-*
-*	Required for Admin
-*	rpt-admin-core.php - Main plugin functions
-*
-*	@since	1.0
-*/ 
-// Public files - none
-
-
-// Admin-only files
+/**
+ * Load files needed for plugin to run
+ *
+ * Required for Public
+ * None
+ *
+ * Required for Admin
+ * rpt-admin-core.php - Main plugin functions
+ *
+ * @since 1.0
+ */ 
 if( is_admin() ) {
 	require_once( SGR_RPT_DIR . '/includes/rpt-admin-core.php');
 }
@@ -115,21 +115,30 @@ if( is_admin() ) {
 	/* Plugin & Admin - Loads language support */
 	// Function defined in rpt-admin-core.php
 	add_action('init', 'sgr_rpt_load_textdomain');
+	
+	/* Plugin - Registers new column as sortable */
+	// Function defined in rpt-admin-core.php
+	add_filter( 'manage_edit-page_sortable_columns', 'sgr_rpt_column_register_sortable' );
+	
+	/* Plugin - Deals with the orderby= request when sorting */
+	// Function defined in rpt-admin-core.php
+	add_filter( 'request', 'sgr_rpt_column_orderby' );
 }
 
 
 
 /***** Functions used by both public and admin *****/
 
-/**	Function to load textdomain for Internationalisation functionality
-*
-*	Loads textdomain if $sgr_rpt_text_loaded is false
-*
-*	Called by add_action('init')
-*	@uses	variable	$sgr_rpt_text_loaded
-*
-*	@since	1.0
-*/
+/**
+ * Function to load textdomain for Internationalisation functionality
+ *
+ * Loads textdomain if $sgr_rpt_text_loaded is false
+ *
+ * Hooked to 'init' action
+ *
+ * @uses	variable	$sgr_rpt_text_loaded
+ * @since 1.0
+ */
 function sgr_rpt_load_textdomain() {
 	
 	global $sgr_rpt_text_loaded;
