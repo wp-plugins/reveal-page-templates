@@ -1,21 +1,22 @@
 <?php
-/**	This file is part of the REVEAL PAGE TEMPLATES Plugin
-*	*****************************************************
-*	Copyright 2009-2010  Ade WALKER  (email : info@studiograsshopper.ch)
-*
-* 	@package	reveal_page_templates
-*	@version	1.2
-*
-*	Core Admin Functions called by various add_filters and add_actions:
-*		- Plugin action links
-*		- Plugin row meta
-*		- WP Version check
-*		- Plugin function: add column to Edit Pages
-*		- Plugin function: populate new column in Edit Pages
-*
-*	@since	1.0
-*
-*/
+/**	
+ * Functions which do all the backend admin stuff
+ *
+ * @author Ade WALKER  (email : info@studiograsshopper.ch)
+ * @copyright Copyright 2009-2011
+ * @package	reveal_page_templates
+ * @version	1.3
+ *
+ * Core Admin Functions called by various add_filters and add_actions:
+ * - Plugin action links
+ * - Plugin row meta
+ * - WP Version check
+ * - Plugin function: add column to Edit Pages
+ * - Plugin function: populate new column in Edit Pages
+ *
+ * @since 1.0
+ *
+ */
 
 /* Prevent direct access to this file */
 if (!defined('ABSPATH')) {
@@ -27,14 +28,15 @@ if (!defined('ABSPATH')) {
 /***** Admin Functions *****/
 
 
-/**	Display Plugin Meta Links in main Plugin page in Dashboard
-*
-*	Adds additional meta links in the plugin's info section in main Plugins Settings page
-*
-*	Hooked to plugin_row_meta filter, so only works for WP 2.8+
-*
-*	@since	1.0
-*/
+/**
+ * Display Plugin Meta Links in main Plugin page in Dashboard
+ *
+ * Adds additional meta links in the plugin's info section in main Plugins Settings page
+ *
+ * Hooked to plugin_row_meta filter, so only works for WP 2.8+
+ *
+ * @since 1.0
+ */
 function sgr_rpt_plugin_meta($links, $file) {
  
 	// $file is the main plugin filename
@@ -58,15 +60,17 @@ function sgr_rpt_plugin_meta($links, $file) {
 }
 
 
-/**	Function to do WP Version check
-*
-*	RPT v1.0 - 1.2 requires WP 2.8+ to run. This function prints a warning
-*	message in the main Plugins screen if version is less than 2.8.
-*
-*	Called by add_filter('after_action_row_$plugin', )
-*
-*	@since	1.0
-*/
+/**
+ * Function to do WP Version check
+ *
+ * RPT v1.3 requires WP 3.1+ to run. This function prints a warning
+ * message in the main Plugins screen if version is less than 3.1.
+ *
+ * Called by add_filter('after_action_row_$plugin', )
+ *
+ * @since 1.0
+ * @updated 1.3
+ */
 function sgr_rpt_wp_version_check() {
 	
 	$rpt_wp_valid = version_compare(get_bloginfo("version"), SGR_RPT_WP_VERSION_REQ, '>=');
@@ -127,77 +131,87 @@ function sgr_rpt_wp_version_check() {
 /***** Plugin Functions *****/
 
 
-/**	Function to do add column to Edit Pages screen
-*
-*	Adds new column in Dashboard Edit Pages
-*
-*	Called by add_filter('manage_pages_columns', )
-*
-*	@since	1.0
-*	@updated 1.3
-*/
-function sgr_rpt_posts_columns($columns) {
-    $columns['sgr_rpt_page_template'] = __('Page Template', SGR_RPT_DOMAIN);
+/**
+ * Function to do add column to Edit Pages screen
+ *
+ * Adds new column in Dashboard Edit Pages
+ *
+ * Hooked to 'manage_pages_columns' filter
+ *
+ * @since 1.0
+ * @updated 1.3
+ */
+function sgr_rpt_posts_columns( $columns ) {
+    
+    $columns['sgr_rpt_page_template'] = __( 'Page Template', SGR_RPT_DOMAIN );
+    
     return $columns;
 }
 
 
-/**	Function to do populate new column in Edit Pages screen
-*
-*	Populates new column with filenames of Page Templates
-*	using _wp_page_template in wp_postmeta table
-*
-*	Called by add_action('manage_pages_custom_column', )
-*
-*	@since	1.0
-*/
-function sgr_rpt_custom_posts_column($column_name, $post_id) {
-    
-	global $wpdb;
+/**
+ * Function to populate new column in Edit Pages screen
+ *
+ * Populates new column with filenames of Page Templates
+ * using _wp_page_template in wp_postmeta table
+ *
+ * Hooked to 'manage_pages_custom_column' action
+ *
+ * @since 1.0
+ * @updated 1.3
+ */
+function sgr_rpt_custom_posts_column( $column_name, $post_id ) {
     
 	// Check we're only messing with my column
 	if( $column_name == 'sgr_rpt_page_template' ) {
-        
-		$sgr_query = $wpdb->get_results(
-			$wpdb->prepare("SELECT * FROM $wpdb->postmeta WHERE $wpdb->postmeta.post_id = %d AND $wpdb->postmeta.meta_key = %s", $post_id, '_wp_page_template')
-			);
-        
-        if( $sgr_query ) {
-            $my_func = create_function('$att', 'return $att->meta_value;');
-            $text = array_map( $my_func, $sgr_query );
-            echo implode(', ',$text);
-        } else {
-			// This should never be called - but just in case
-            echo '<i>'.__('default').'</i>';
-        }
+	
+		$column_content = get_post_meta( $post_id, '_wp_page_template', true );
+
+        if( !$column_content )
+        	echo '<em>'.__('default').'</em>';
+		
+		echo $column_content;
     }
 }
 
 
-/**	Function to register the column as sortable
-*
-*	New WP 3.2 feature
-*
-*	Called by add_action('manage_edit-page_sortable_columns', )
-*
-*	@since	1.3
-*/
+/**
+ * Function to register the column as sortable
+ *
+ * New WP 3.2 feature
+ *
+ * Hooked to 'manage_edit-page_sortable_columns' action
+ *
+ * @since 1.3
+ */
 function sgr_rpt_column_register_sortable( $columns ) {
-	$columns['sgr_rpt_page_template'] = __('Page Template', SGR_RPT_DOMAIN);
+	
+	// Register the column and the query var whuch is used when sorting
+	$columns['sgr_rpt_page_template'] = 'sgr_rpt_template';
  
 	return $columns;
 }
-add_filter( 'manage_edit-page_sortable_columns', 'sgr_rpt_column_register_sortable' );
 
 
+/**
+ * Function to handle the query when sorting the column
+ *
+ * New WP 3.2 feature
+ *
+ * Hooked to 'request' filter
+ * postmeta meta_key is _wp_page_template
+ * sorted on orderby=meta_value
+ *
+ * @since 1.3
+ */
 function sgr_rpt_column_orderby( $vars ) {
-	if ( isset( $vars['orderby'] ) && 'sgr_rpt_page_template' == $vars['orderby'] ) {
+	
+	if ( isset( $vars['orderby'] ) && 'sgr_rpt_template' == $vars['orderby'] ) {
 		$vars = array_merge( $vars, array(
-			'meta_key' => 'sgr_rpt_page_template',
-			'orderby' => 'meta_value_num'
+			'meta_key' => '_wp_page_template',
+			'orderby' => 'meta_value'
 		) );
 	}
  
 	return $vars;
 }
-add_filter( 'request', 'sgr_rpt_column_orderby' );
