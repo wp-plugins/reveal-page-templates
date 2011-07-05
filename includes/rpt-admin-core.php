@@ -134,10 +134,11 @@ function sgr_rpt_wp_version_check() {
 *	Called by add_filter('manage_pages_columns', )
 *
 *	@since	1.0
+*	@updated 1.3
 */
-function sgr_rpt_posts_columns($defaults) {
-    $defaults['sgr_rpt_page_template'] = __('Page Template', SGR_RPT_DOMAIN);
-    return $defaults;
+function sgr_rpt_posts_columns($columns) {
+    $columns['sgr_rpt_page_template'] = __('Page Template', SGR_RPT_DOMAIN);
+    return $columns;
 }
 
 
@@ -171,3 +172,32 @@ function sgr_rpt_custom_posts_column($column_name, $post_id) {
         }
     }
 }
+
+
+/**	Function to register the column as sortable
+*
+*	New WP 3.2 feature
+*
+*	Called by add_action('manage_edit-page_sortable_columns', )
+*
+*	@since	1.3
+*/
+function sgr_rpt_column_register_sortable( $columns ) {
+	$columns['sgr_rpt_page_template'] = __('Page Template', SGR_RPT_DOMAIN);
+ 
+	return $columns;
+}
+add_filter( 'manage_edit-page_sortable_columns', 'sgr_rpt_column_register_sortable' );
+
+
+function sgr_rpt_column_orderby( $vars ) {
+	if ( isset( $vars['orderby'] ) && 'sgr_rpt_page_template' == $vars['orderby'] ) {
+		$vars = array_merge( $vars, array(
+			'meta_key' => 'sgr_rpt_page_template',
+			'orderby' => 'meta_value_num'
+		) );
+	}
+ 
+	return $vars;
+}
+add_filter( 'request', 'sgr_rpt_column_orderby' );
