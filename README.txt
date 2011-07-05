@@ -1,22 +1,22 @@
 === Reveal Page Templates ===
 
-Version: 1.2
+Version: 1.3
 Author: Ade Walker
 Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/reveal-page-templates/
 Tags: page templates,edit,edit pages,admin,dashboard
-Requires at least: 2.8
+Requires at least: 3.1
 Tested up to: 3.2
 Stable tag: 1.2
 
-Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page. Compatible with Wordpress Multisite. Requires WordPress 2.8+.
+Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page. Compatible with Wordpress Multisite. Requires WordPress 3.1+.
 
 
 == Description==
 
-This plugin adds a column to the Edit Pages screen in the Dashboard which displays the Page Template filename assigned to each Page. This gives you an at-a-glance overview of the Page Templates assigned to Pages, without having to open each Page to find out.
+This plugin adds a column to the Edit Pages screen in the Dashboard which displays the Page Template filename assigned to each Page. This gives you an at-a-glance overview of the Page Templates assigned to Pages, without having to open each Page to find out. The new column is sortable too!
 
-Compatible with Wordpress Multisite. Requires WordPress version 2.8+.
+Compatible with Wordpress Multisite. Requires WordPress version 3.1+.
 
 
 **Further information**
@@ -36,7 +36,7 @@ All support is handled at the [Studiograsshopper Forum](http://www.studiograssho
 2. Extract and upload the folder *reveal-page-templates* to your */wp-content/plugins/* directory. Please ensure that you do not rename any folder or filenames in the process.
 3. Activate the plugin in your Dashboard via the “Plugins” menu item.
 
-Note for Wordpress Mu users:
+Note for Wordpress Multisite users:
 
 * Install the plugin in your */plugins/* directory (do not install in the */mu-plugins/* directory).
 * In order for this plugin to be visible to blog owners, the plugin has to be activated for each blog by the Site Administrator.
@@ -82,6 +82,11 @@ If you find any bugs, or have suggestions for future features, please leave a me
 
 
 == Changelog ==
+
+= 1.3 =
+* Released 5 July 2011
+* Feature: Reveal Template column is now sortable
+* Enhance: Cleaned up some code in older functions
 
 = 1.2 =
 * Released 16 November 2010
