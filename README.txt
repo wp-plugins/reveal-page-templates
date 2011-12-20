@@ -6,7 +6,7 @@ Author page: http://www.studiograsshopper.ch
 Plugin page: http://www.studiograsshopper.ch/reveal-page-templates/
 Tags: page templates,edit,edit pages,admin,dashboard
 Requires at least: 3.1
-Tested up to: 3.2
+Tested up to: 3.3
 Stable tag: 1.3
 
 Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page. Compatible with Wordpress Multisite. Requires WordPress 3.1+.
