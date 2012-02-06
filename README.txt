@@ -10,14 +10,13 @@ Requires at least: 3.1
 Tested up to: 3.3
 Stable tag: 1.3
 
-Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page. Compatible with Wordpress Multisite. Requires WordPress 3.1+.
-
+Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page.
 
 == Description==
 
 This plugin adds a column to the Edit Pages screen in the Dashboard which displays the Page Template filename assigned to each Page. This gives you an at-a-glance overview of the Page Templates assigned to Pages, without having to open each Page to find out. The new column is sortable too!
 
-Compatible with Wordpress Multisite. Requires WordPress version 3.1+.
+Compatible with WordPress Multisite. Requires WordPress version 3.1+.
 
 
 **Further information**
