@@ -3,6 +3,7 @@
 Version: 1.3
 Author: Ade Walker
 Author page: http://www.studiograsshopper.ch
+Contributors: studiograsshopper
 Plugin page: http://www.studiograsshopper.ch/reveal-page-templates/
 Tags: page templates,edit,edit pages,admin,dashboard
 Requires at least: 3.1
