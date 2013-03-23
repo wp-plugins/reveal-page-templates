@@ -7,7 +7,7 @@ Contributors: studiograsshopper
 Plugin page: http://www.studiograsshopper.ch/reveal-page-templates/
 Tags: page templates,edit,edit pages,admin,dashboard
 Requires at least: 3.1
-Tested up to: 3.4
+Tested up to: 3.5.1
 Stable tag: 1.3
 
 Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page.
@@ -23,7 +23,7 @@ Compatible with WordPress Multisite. Requires WordPress version 3.1+.
 -----------------------
 Comprehensive information on installing, configuring and using the plugin can be found [here](http://www.studiograsshopper.ch/reveal-page-templates/), and answers to frequently asked questions can be found at the [FAQ](http://www.studiograsshopper.ch/reveal-page-templates/faq/). 
 
-All support is handled at the [Studiograsshopper Forum](http://www.studiograsshopper.ch/forum/). I do not have time to monitor the wordpress.org forums, therefore please post any questions on my site's forum.
+All support is handled at the [plugin's WordPress.org Support Forum](http://wordpress.org/support/plugin/reveal-page-templates).
 
 
 == Installation ==
@@ -67,13 +67,13 @@ This plugin is provided free of charge without warranty.  In the event you exper
 Reveal Page Templates home page - http://www.studiograsshopper.ch/reveal-page-templates/
 FAQ - http://www.studiograsshopper.ch/reveal-page-templates/faq/
 
-If, having referred to the above resources, you still need assistance, visit the support page at http://www.studiograsshopper.ch/forum/.  Support is provided in my free time but every effort will be made to respond to support queries as quickly as possible. I do not have time to monitor the wordpress.org forums, therefore please post any questions on my site's forum.
+If, having referred to the above resources, you still need assistance, you can post a question on the [plugin's WordPress.org Support Forum](http://wordpress.org/support/plugin/reveal-page-templates).  Support is provided in my free time but every effort will be made to respond to support queries as quickly as possible.
 
 Thanks for downloading the plugin.  Enjoy!
 
 If you have found the plugin useful, please consider a Donation to help me continue to invest the time and effort in maintaining and improving this plugin. Thank you!
 
-If you find any bugs, or have suggestions for future features, please leave a message on the [Support Forum](http://www.studiograsshopper.ch/forum/).
+If you find any bugs, or have suggestions for future features, please leave a message on the [plugin's WordPress.org Support Forum](http://wordpress.org/support/plugin/reveal-page-templates).
 
 
 
@@ -84,6 +84,7 @@ If you find any bugs, or have suggestions for future features, please leave a me
 == Changelog ==
 
 = 1.3 =
+* Readme.txt updated 23 March 2013
 * Released 5 July 2011
 * Feature: Reveal Template column is now sortable
 * Enhance: Cleaned up some code in older functions
