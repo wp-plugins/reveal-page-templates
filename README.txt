@@ -8,7 +8,7 @@ Plugin page: http://www.studiograsshopper.ch/reveal-page-templates/
 Donate link: http://www.studiograsshopper.ch/reveal-page-templates/
 Tags: page templates,edit,edit pages,admin,dashboard
 Requires at least: 3.1
-Tested up to: 3.5.1
+Tested up to: 3.7
 Stable tag: 1.3
 
 Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page.
