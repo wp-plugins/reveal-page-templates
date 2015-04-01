@@ -1,6 +1,6 @@
 === Reveal Page Templates ===
 
-Version: 1.3
+Version: 1.3.1
 Author: Ade Walker
 Author page: http://www.studiograsshopper.ch
 Contributors: studiograsshopper
@@ -8,7 +8,7 @@ Plugin page: http://www.studiograsshopper.ch/reveal-page-templates/
 Donate link: http://www.studiograsshopper.ch/reveal-page-templates/
 Tags: page templates,edit,edit pages,admin,dashboard
 Requires at least: 3.1
-Tested up to: 3.7
+Tested up to: 4.1.1
 Stable tag: 1.3
 
 Adds a column to the Edit Pages Dashboard screen displaying the Page Template assigned to each Page.
@@ -84,6 +84,12 @@ Thanks for downloading the plugin.  Enjoy!
 
 
 == Changelog ==
+
+= 1.3.1 =
+* Released 1 April 2015
+* Enhance: Fixed I18n coding to meet WP 3.7+ standards
+* Enhance: SGR_RPT_DOMAIN constant deprecated
+* Enhance: Merged old WPMU code with main code
 
 = 1.3 =
 * Readme.txt updated 1 April 2013
