@@ -3,9 +3,9 @@
  * Functions which do all the backend admin stuff
  *
  * @author Ade WALKER  (email : info@studiograsshopper.ch)
- * @copyright Copyright 2009-2011
+ * @copyright Copyright 2009-2015
  * @package	reveal_page_templates
- * @version	1.3
+ * @version	1.3.1
  *
  * Core Admin Functions called by various add_filters and add_actions:
  * - Plugin action links
@@ -19,8 +19,8 @@
  */
 
 /* Prevent direct access to this file */
-if (!defined('ABSPATH')) {
-	exit( __('Sorry, you are not allowed to access this file directly.', SGR_RPT_DOMAIN) );
+if ( !defined( 'ABSPATH' ) ) {
+	exit( __( 'Sorry, you are not allowed to access this file directly.', 'reveal-page-templates' ) );
 }
 
 
@@ -45,9 +45,9 @@ function sgr_rpt_plugin_meta($links, $file) {
 	if( $file == SGR_RPT_FILE_NAME ) {
 	
 		// Create links
-		$faq_link = '<a href="http://www.studiograsshopper.ch/reveal-page-templates/faq/" target="_blank">' . __('FAQ', SGR_RPT_DOMAIN) . '</a>';
-		$docs_link = '<a href="http://www.studiograsshopper.ch/reveal-page-templates/documentation/" target="_blank">' . __('Documentation', SGR_RPT_DOMAIN) . '</a>';
-		$donation_link = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=10131319">' . __('Donate', SGR_RPT_DOMAIN) . '</a>';
+		$faq_link = '<a href="http://www.studiograsshopper.ch/reveal-page-templates/faq/" target="_blank">' . __('FAQ', 'reveal-page-templates') . '</a>';
+		$docs_link = '<a href="http://www.studiograsshopper.ch/reveal-page-templates/documentation/" target="_blank">' . __('Documentation', 'reveal-page-templates') . '</a>';
+		$donation_link = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=10131319">' . __('Donate', 'reveal-page-templates') . '</a>';
 		
 		return array_merge(
 			$links,
@@ -69,7 +69,7 @@ function sgr_rpt_plugin_meta($links, $file) {
  * Called by add_filter('after_action_row_$plugin', )
  *
  * @since 1.0
- * @updated 1.3
+ * @updated 1.3.1
  */
 function sgr_rpt_wp_version_check() {
 	
@@ -84,21 +84,14 @@ function sgr_rpt_wp_version_check() {
 			// We're good, so do nothing
 			return;
 			
-		} elseif( !function_exists('wpmu_create_blog') ) {
-			// We're in WP
+		} else {
+			
 			$version_message = '<tr class="plugin-update-tr"><td class="plugin-update" colspan="3">';
 			$version_message .= '<div class="update-message" style="background:#FFEBE8;border-color:#BB0000;">';
-			$version_message .= __('Warning! This version of Reveal Page Templates requires Wordpress', SGR_RPT_DOMAIN) . ' <strong>' . SGR_RPT_WP_VERSION_REQ . '</strong>+ ' . __('Please upgrade Wordpress to run this plugin.', SGR_RPT_DOMAIN);
+			$version_message .= __('Warning! This version of Reveal Page Templates requires Wordpress', 'reveal-page-templates') . ' <strong>' . SGR_RPT_WP_VERSION_REQ . '</strong>+ ' . __('Please upgrade Wordpress to run this plugin.', 'reveal-page-templates');
 			$version_message .= '</div></td></tr>';
 			echo $version_message;
 			
-		} else {
-			// We're in WPMU
-			$version_message = '<tr class="plugin-update-tr"><td class="plugin-update" colspan="3">';
-			$version_message .= '<div class="update-message" style="background:#FFEBE8;border-color:#BB0000;">';
-			$version_message .= __('Warning! This version of Reveal Page Templates requires WPMU', SGR_RPT_DOMAIN) . ' <strong>' . SGR_RPT_WP_VERSION_REQ . '</strong>+ ' . __('Please contact your Site Administrator.', SGR_RPT_DOMAIN);
-			$version_message .= '</div></td></tr>';
-			echo $version_message;
 		}
 	}
 	
@@ -113,15 +106,11 @@ function sgr_rpt_wp_version_check() {
 			// We're good, so do nothing
 			return;
 			
-		} elseif( !function_exists('wpmu_create_blog') ) {
-			// We're in WP
-			$version_msg .= '<strong>' . __('Warning! This version of Reveal Page Templates requires Wordpress', SGR_RPT_DOMAIN) . ' ' . SGR_RPT_WP_VERSION_REQ . '+ ' . __('Please upgrade Wordpress to run this plugin.', SGR_RPT_DOMAIN) . '</strong>';
+		} else {
+			
+			$version_msg .= '<strong>' . __('Warning! This version of Reveal Page Templates requires Wordpress', 'reveal-page-templates') . ' ' . SGR_RPT_WP_VERSION_REQ . '+ ' . __('Please upgrade Wordpress to run this plugin.', 'reveal-page-templates') . '</strong>';
 			echo $version_top_msg_start . $version_msg . $version_top_msg_end;
 			
-		} else {
-			// We're in WPMU
-			$version_msg .= '<strong>' . __('Warning! This version of Reveal Page Templates requires WPMU', SGR_RPT_DOMAIN) . ' ' . SGR_RPT_WP_VERSION_REQ . '+ ' . __('Please contact your Site Administrator.', SGR_RPT_DOMAIN) . '</strong>';
-			echo $version_top_msg_start . $version_msg . $version_top_msg_end;
 		}
 	}
 }
@@ -143,7 +132,7 @@ function sgr_rpt_wp_version_check() {
  */
 function sgr_rpt_posts_columns( $columns ) {
     
-    $columns['sgr_rpt_page_template'] = __( 'Page Template', SGR_RPT_DOMAIN );
+    $columns['sgr_rpt_page_template'] = __( 'Page Template', 'reveal-page-templates' );
     
     return $columns;
 }

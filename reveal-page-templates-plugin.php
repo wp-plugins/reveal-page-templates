@@ -2,13 +2,15 @@
 /*
 Plugin Name: Reveal Page Templates
 Plugin URI: http://www.studiograsshopper.ch/reveal-page-templates/
-Version: 1.3
+Version: 1.3.1
+Text Domain: reveal-page-templates
+Domain Path: /lang
 Author: Ade Walker, Studiograsshopper
 Author URI: http://www.studiograsshopper.ch
 Description: Adds a column to the Edit Pages Dashboard screen to display the Page Template assigned to each Page. Requires WP 2.8+.
 */
 
-/*  Copyright 2009-2011  Ade WALKER  (email : info@studiograsshopper.ch)
+/*  Copyright 2009-2015  Ade WALKER  (email : info@studiograsshopper.ch)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License 2 as published by
@@ -26,6 +28,10 @@ Description: Adds a column to the Edit Pages Dashboard screen to display the Pag
 
 /* Version History
 
+1.3.1		- Enhance:	Fixed I18n coding to meet WP 3.7+ standards
+			- Enhance:	SGR_RPT_DOMAIN constant deprecated
+			- Enhance:	Merged old WPMU code with main code
+
 1.3			- Feature:	Reveal Template column is now sortable
 			- Enhance:	Cleaned up some code in older functions
 
@@ -40,8 +46,8 @@ Description: Adds a column to the Edit Pages Dashboard screen to display the Pag
 /* ******************** DO NOT edit below this line! ******************** */
 
 /* Prevent direct access to the plugin */
-if (!defined('ABSPATH')) {
-	exit(__( "Sorry, you are not allowed to access this page directly.", SGR_RPT_DOMAIN ));
+if ( !defined( 'ABSPATH' ) ) {
+	exit( __( "Sorry, you are not allowed to access this page directly.", 'reveal-page-templates' ) );
 }
 
 
@@ -60,8 +66,7 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) )
 /* Set constants for plugin */
 define( 'SGR_RPT_URL', WP_PLUGIN_URL.'/reveal-page-templates' );
 define( 'SGR_RPT_DIR', WP_PLUGIN_DIR.'/reveal-page-templates' );
-define( 'SGR_RPT_VER', '1.3' );
-define( 'SGR_RPT_DOMAIN', 'sgr_reveal_page_templates' );
+define( 'SGR_RPT_VER', '1.3.1' );
 define( 'SGR_RPT_WP_VERSION_REQ', '3.1' );
 define( 'SGR_RPT_FILE_NAME', 'reveal-page-templates/reveal-page-templates-plugin.php' );
 
@@ -114,7 +119,7 @@ if( is_admin() ) {
 
 	/* Plugin & Admin - Loads language support */
 	// Function defined in rpt-admin-core.php
-	add_action('init', 'sgr_rpt_load_textdomain');
+	add_action('plugins_loaded', 'sgr_rpt_load_textdomain');
 	
 	/* Plugin - Registers new column as sortable */
 	// Function defined in rpt-admin-core.php
@@ -132,12 +137,15 @@ if( is_admin() ) {
 /**
  * Function to load textdomain for Internationalisation functionality
  *
+ * Plugin updated as per ottopress.com article:
+ * http://ottopress.com/2013/language-packs-101-prepwork/
+ *
  * Loads textdomain if $sgr_rpt_text_loaded is false
  *
- * Hooked to 'init' action
+ * Hooked to 'plugins_loaded' action
  *
- * @uses	variable	$sgr_rpt_text_loaded
  * @since 1.0
+ * @updated 1.3.1
  */
 function sgr_rpt_load_textdomain() {
 	
@@ -149,7 +157,7 @@ function sgr_rpt_load_textdomain() {
    	}
 	
 	// Textdomain isn't already loaded, let's load it
-   	load_plugin_textdomain(SGR_RPT_DOMAIN, false, dirname(plugin_basename(__FILE__)). '/lang');
+   	load_plugin_textdomain( 'reveal-page-templates', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
    	
 	// Change variable to prevent loading textdomain again
 	$sgr_rpt_text_loaded = true;
